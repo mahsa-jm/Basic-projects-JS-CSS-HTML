@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  //flex-direction: column;we dont need
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+.container{
+    display: flex; //it will turn to a flex row,every children will be horizontally
+    //flex-direction: column; if we want them on top of eachother we'd use this
+    width: 90vw; //vw a viewport width,if we think of the width of 100slices going this way,we're taking of 90 of the 100
+
+}
+.panel{
+    background-size: auto 100%;
+    background-position: center ;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    flex: 0.5; //for width, bc we're using flexbox,for active we'll set it to higher num like 5
+     margin: 10px;
+     position: relative;//bc we wanna set the position h3 abolute
+     transition: flex 0.7s ease-in; //for active 
+}
+.panel h3{
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0%;
+    opacity: 0; //we wanna only see the text when it's active
+}
+.panel.active {
+    flex: 5;   
+}
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s; //0.4 is the delay injury kardim neveshtea khoshkel tar bian
+}
+//when the screen is small we want to show 3pic instead of 5
+@media (max-width: 480px) {
+    .container{
+        width: 100vw;
+    }
+    //use pseudo selector by using a colon 
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    } //image 4 ,5
+    
+}

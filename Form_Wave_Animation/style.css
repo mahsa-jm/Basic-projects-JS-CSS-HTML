@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  background-color: steelblue;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+.container{
+    background-color: rgba(0, 0, 0,0.4);
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+.container h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.container a{
+    text-decoration: none;
+    color: lightblue;
+}
+.form-control{
+    position: relative;
+    margin: 20px 0 40px;
+    /* 20 top , 0left and right, 40 bottom */
+    width:300px ;
+}
+.form-control input{
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px white solid;
+    display: inline-block;
+    /* we want it on its own line so instead of inline we set display to block,khate border miad bala */
+    width:100%;
+    /* to go all the way across */
+    padding: 15px 0;
+    /* 15 on top and bottom */
+    font-size: 18px;
+    color: white;
+}
+.form-control input:focus ,
+.form-control input:valid{
+    outline: 0;
+    border-bottom-color: lightblue;
+} 
+/* hala tu halate focus dg border nadarim */
+
+.btn{ 
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    background: lightblue;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+}
+.btn:focus{
+    outline: 0;
+}
+.btn:active{
+    transform: scale(0.98);
+ }
+ /* click mkikonim mire tu bouncing mishe */
+
+ .text{
+     margin-top: 30px;
+ }
+
+
+ .form-control label{
+     position: absolute;
+     top: 15px;
+     left: 0;
+ }
+ /* alan nevehtea miad rushun vali ba js dolrosteshun mkikonim */
+
+ .form-control label span{
+     display: inline-block;
+     /* it's inline by default */
+     font-size: 18px;
+     min-width: 5px;
+     transition: 0.3s cubic-bezier(0.68,-0.55,0.265,1.55);
+     /* cubic bezier defines a curve it takes in 4points p0 p1 p2 p3, p0 and p3 are the sart and end of the curve,variable speed on its transition,like a bounce effect */
+ }
+
+ .form-control input:focus + label span,
+ .form-control input:valid + label span{
+     color: lightblue;
+     /* when we click color turn to light blue */
+     transform: translateY(-30px);
+ }
