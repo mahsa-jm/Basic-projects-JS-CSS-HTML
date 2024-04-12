@@ -1,0 +1,24 @@
+const buttons = document.querySelectorAll('.ripple')
+
+buttons.forEach(button => {
+    button.addEventListener('click', function (e) {
+        const x = e.clientX
+        const y = e.clientY //it gdet where we clic k in the entire viewport
+
+        const buttonTop = e.target.offsetTop
+        const buttonLeft = e.target.offsetLeft
+
+        const xInside = x - buttonLeft
+        const yInside = y - buttonTop
+        
+        const circle = document.createElement('span')
+        circle.classList.add('circle')
+        circle.style.top= yInside + 'px'
+        circle.style.left = xInside + 'px'
+
+        this.appendChild(circle) //this wont work within the arrow function it should be regular function
+        
+
+        setTimeout(() =>  circle.remove(), 500)
+    })
+})
