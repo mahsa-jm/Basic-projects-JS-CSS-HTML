@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+
+* {
+  box-sizing: border-box;
+  margin: 0; 
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh; 
+}
+.slider-container{
+    position: relative; //because we are gonna set everything inside absolute
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+.left-slide{
+    width: 35%; //35% of the container
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform .5s ease-in-out;
+}
+.left-slide > div {
+    height: 100%; // each one will take the entire height
+    width: 100%; //but it's 100% of its container which is 35%
+    display: flex; //each div will have the display flex
+    flex-direction: column;//its horizontal and then we can allign both horizontally and vertically so:
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+}
+.left-slide h1{
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-top: -30px;//it will pull it up a little bit    
+}
+.right-slide{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left:35%;// because lef side width is 35% and we want this to start from there
+    width: 65%;
+    transition: transform .5s ease-in-out; //khoshkel bala payin shan
+
+}
+.right-slide > div{
+    background-repeat: no-repeat;
+    background-size: cover;//we want it to show the whole image
+    background-position: center center;//center in y and x 
+    height: 100%;
+    width: 100%;
+}
+button {
+    background-color: white;
+    border: none;
+    color: gray;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px;   
+}
+button:hover{ 
+    color: #222;
+}
+button:focus{
+    outline: none;
+}
+.slider-container .action-buttons button{
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    z-index: 100;
+}
+
+.slider-container .action-buttons .down-button {
+    transform: translateX(-100%);//what we wanna do is to move this button over to the left,if we use a positive num it will mov e it to the right so we use -100(now its on the either line)
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.slider-container .action-buttons .up-button{
+    transform: translateY(-100%);//we wanna move this up
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}

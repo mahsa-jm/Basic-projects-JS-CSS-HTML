@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden; //it only hides the scroll bar on the x axis.
+  background-color: #333;
+  color: #222;
+  margin: 0;
+}
+.container{
+    background-color: #fafafa;
+    transform-origin: top left;
+    transition: transform 0.5s linear ;
+    width: 100vw; //basically take up the whole viewport horizontally
+    min-height: 100vh; //take up the whole viewport
+    padding: 50px;
+}
+//we wanna change the transform origin bc transform origin when u change the origin by default it's going to be in the middle however we want it to rotate from top left position
+//go to the amdocs for fortran transform origin
+.container.show-nav{
+    transform: rotate(-20deg); //it rotate the container -20 degrees when it has show-nav class   
+}
+.circle-container{
+    position: fixed;
+    top: -100px; //we want it a half circle on the edge of the page
+    left: -100px;
+}
+.circle {
+    background-color: #ff7979;
+    height: 200px; //thats why we did -100 bc we have 200 for height and the width
+    width: 200px;
+    border-radius: 50%;
+    position: relative; //we want buttons absolute
+    transition: transform 0.5s linear ;
+}
+.container.show-nav{
+    transform: rotate(-70deg); //so now once it rotates we can see the close button
+}
+
+.circle button{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background: transparent;
+    border: 0;
+    font-size: 26px;
+    color: white;
+}
+.circle button :focus{ //get rid of the border when it's in the focus state
+    outline: none;
+}
+.circle button#open{
+    left: 60%;
+}
+.container.show-nav + nav li {
+    transform: translateX(0);//which will bring them to its original place
+    transition-delay: 0.3s;
+  
+}
+nav{
+    position: fixed; // we want it fixed down to the bottom
+    bottom:40px ; //40px up
+    left: 0;
+    z-index: 100 ;//so its on top
+    ul {
+        list-style-type: none;   
+        padding-left: 30px;   
+    }   
+}
+
+nav ul li{
+    
+    text-transform: uppercase;
+    color: white; //apply nmishe
+    margin: 40px 0;//40px on top and bottom so seprate them from each other
+    //transform: translateX(-100%); //vaghti miad bere chap
+    transition: transform 0.4s ease-in;
+}
+nav ul li i{
+    font-size: 20px;
+    margin-right: 10px;  //put some distance between icon and text aply nemishe lashi
+}
+nav ul li + li { 
+    margin-left: 15px; // the lis after the initial lis are going to stick out 15px
+    transform: translateX(-150%);
+  }
+  
+  nav ul li + li + li {
+    margin-left: 30px; //the contact wkill stick out double that(the 15px)
+    transform: translateX(-200%);
+  }
+
+
+.circle button#close{
+    top: 60%; //these are relative to the circle
+    transform: rotate(90deg);
+    transform-origin: top left; // ba 2ta line akhar gozashtimesh unvartar vaghti becharkhe malum mishe
+}
+.content img {
+    max-width: 100%; //of its container
+}
+.content{
+    max-width: 1000px;
+    margin: 50px auto; //keep it in the middle
+}
+.content {
+     h1{
+         margin: 0;
+     }
+     small{
+         color: #555;
+         font-style: italic;
+     }
+     p{
+         color: #333;
+         line-height: 1.5;
+     }
+}
